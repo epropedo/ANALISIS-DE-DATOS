@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS categorias;
 CREATE TABLE categorias(
 id_categoria INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 nombre_categoria VARCHAR(50) NOT NULL,
-descripcion VARCHAR(200),
+descripcion VARCHAR(200)
 );
 
 CREATE TABLE clientes(
@@ -23,7 +23,7 @@ id_cliente INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 nombre_cliente VARCHAR(100) NOT NULL,
 email VARCHAR(100) UNIQUE,
 ciudad VARCHAR(50),
-fecha_registro DATE NOT NULL,
+fecha_registro DATE NOT NULL
 );
 
 CREATE TABLE productos(
@@ -32,7 +32,7 @@ nombre_producto VARCHAR(100) NOT NULL,
 id_categoria INT FOREIGN KEY REFERENCES categorias(id_categoria),
 precio DECIMAL(10,2) NOT NULL,
 stock INT DEFAULT 0,
-activo BIT DEFAULT 1,
+activo BIT DEFAULT 1
 );
 
 CREATE TABLE ventas(
@@ -41,7 +41,7 @@ id_cliente INT FOREIGN KEY REFERENCES clientes(id_cliente),
 id_producto INT FOREIGN KEY REFERENCES productos(id_producto),
 cantidad INT NOT NULL,
 precio_unitario DECIMAL(10,2) NOT NULL,
-fecha_venta DATE NOT NULL,
+fecha_venta DATE NOT NULL
 );
 
 /* DML - CARGA DE DATOS EN TABLAS */
